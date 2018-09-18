@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descricao: MyText
+  preco: 1.5
+  tempopreparo: 2018-09-14 19:37:12
+
+two:
+  descricao: MyText
+  preco: 1.5
+  tempopreparo: 2018-09-14 19:37:12
