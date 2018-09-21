@@ -1,5 +1,5 @@
-class Dish < ApplicationRecord
-  validates_presence_of : descricao
+class Ingredient < ApplicationRecord
+  validates_presence_of :descricao
 
-  has_and_belongs_to_many nome:dishes
+  has_and_belongs_to_many :dishes
 end

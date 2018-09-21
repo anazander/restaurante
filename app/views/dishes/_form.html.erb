@@ -4,9 +4,9 @@
       <h2><%= pluralize(dish.errors.count, "error") %> prohibited this dish from being saved:</h2>
 
       <ul>
-      <% dish.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% dish.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -25,6 +25,13 @@
     <%= form.label :tempopreparo %>
     <%= form.time_select :tempopreparo %>
   </div>
+
+  <% for ingredient in Ingredient.all %>
+    <div>
+      <%= check_box_tag "dish[ingredient_ids][]", ingredient.id, @dish.ingredients.include?(ingredient) %>
+      <%= ingredient.descricao %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>

@@ -4,7 +4,7 @@ class DishesController < ApplicationController
   # GET /dishes
   # GET /dishes.json
   def index
-    @dishes = Dish.all
+    @dishes = Dish.all.order('descricao')
   end
 
   # GET /dishes/1
@@ -62,13 +62,13 @@ class DishesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_dish
-      @dish = Dish.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_dish
+    @dish = Dish.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def dish_params
-      params.require(:dish).permit(:descricao, :preco, :tempopreparo)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def dish_params
+    params.require(:dish).permit(:descricao, :preco, :tempopreparo, {ingredient_ids: []})
+  end
 end
